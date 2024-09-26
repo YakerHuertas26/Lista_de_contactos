@@ -12,14 +12,22 @@ const Formulario = () => {
     };
     
 
-    const obtenerCorreo=(e)=>{
-        setCorreo(e.target.value) 
-    }
+    const obtenerCorreo= (e)=>{
+        setCorreo(e.target.value);
 
-    
-    const agregar=(e)=>{
-        e.preventDefault();
     }
+    const agregar= async (e)=>{
+        e.preventDefault();
+        try {
+            await addDoc(collection(dataBase,"usuarios"),{
+                nombre:nombre,
+                correo:correo
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
     
     return ( 
         <form action="" onSubmit={agregar} >
