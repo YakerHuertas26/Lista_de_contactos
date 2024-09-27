@@ -26,6 +26,8 @@ const Formulario = () => {
         } catch (error) {
             console.log(error);
         }
+        setNombre('');
+        setCorreo('');
     }
     
     
